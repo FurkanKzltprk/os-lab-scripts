@@ -1,7 +1,6 @@
 #!/bin/bash
 
-
-#!/bin/bash
+#this is shebang line, it tells the system to use bash to execute this script
 
 # Check if exactly 3 parameters are provided
 if [ "$#" -ne 3 ]; then

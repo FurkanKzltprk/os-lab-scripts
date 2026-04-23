@@ -1,0 +1,207 @@
+================================================================================
+SCRIPT 2: MENU-DRIVEN SCRIPT WITH FUNCTIONS - PROFESSOR PRESENTATION
+================================================================================
+
+SCRIPT CODE:
+================================================================================
+
+#!/bin/bash
+
+# Script 2: Menu-driven script with functions
+# Runs until option 4 (Exit) is selected
+
+# FUNCTION 1: Calculate factorial
+calculate_factorial() {
+    read -p "Enter a number: " num
+
+    # Validate input is a non-negative integer
+    if ! [[ "$num" =~ ^[0-9]+$ ]]; then
+        echo "Error: Please enter a valid non-negative integer."
+        return
+    fi
+
+    result=1
+    for (( i=2; i<=num; i++ )); do
+        result=$(( result * i ))
+    done
+
+    echo "Factorial of $num is: $result"
+}
+
+# FUNCTION 2: Fix permissions on .sh files
+fix_sh_permissions() {
+    echo "Searching current directory for non-executable .sh files..."
+
+    found=0
+    for file in *.sh; do
+        # Check if any .sh files exist
+        [ -e "$file" ] || continue
+
+        # If file is not executable, make it executable
+        if [ ! -x "$file" ]; then
+            chmod +x "$file"
+            echo "Permission changed: $file → now executable"
+            found=1
+        fi
+    done
+
+    if [ "$found" -eq 0 ]; then
+        echo "No non-executable .sh files found in current directory."
+    fi
+}
+
+# FUNCTION 3: Display system information
+display_system_info() {
+    echo "-----------------------------"
+    echo "  SYSTEM INFORMATION"
+    echo "-----------------------------"
+    echo "Date        : $(date)"
+    echo "Shell       : $SHELL"
+    echo "Home Dir    : $HOME"
+    echo "Run by user : $USER"
+    echo "-----------------------------"
+}
+
+# MAIN MENU LOOP
+while true; do
+    echo ""
+    echo "============================="
+    echo "         MAIN MENU"
+    echo "============================="
+    echo "1. Calculate factorial"
+    echo "2. Fix .sh file permissions"
+    echo "3. Display system info"
+    echo "4. Exit"
+    echo "============================="
+    read -p "Select an option: " choice
+
+    case $choice in
+        1) calculate_factorial ;;
+        2) fix_sh_permissions ;;
+        3) display_system_info ;;
+        4)
+            echo "Exiting... Goodbye!"
+            exit 0
+            ;;
+        *)
+            echo "Invalid option. Please try again."
+            ;;
+    esac
+done
+
+================================================================================
+EXPLANATION (WHAT YOU WILL SAY TO PROFESSOR):
+================================================================================
+
+"Professor, this is a menu-driven script with three functions. The script
+displays a menu and runs until the user selects exit. Let me explain the
+three functions:"
+
+FUNCTION 1 - Calculate Factorial:
+"This function calculates the factorial of a number. First, it reads input
+from the user. Then it validates that the input is a non-negative integer
+using regular expression (=~ ^[0-9]+$). If valid, it multiplies all numbers
+from 2 to n using a for loop. For example, factorial of 5 is 5*4*3*2*1 = 120."
+
+FUNCTION 2 - Fix .sh File Permissions:
+"This function searches for all .sh files in the current directory. For each
+file found, it checks if the file is executable ([ -x ]). If not executable,
+it uses chmod +x to make it executable. It counts how many files were fixed
+and displays the result."
+
+FUNCTION 3 - Display System Information:
+"This function displays system information using built-in variables and
+commands. It shows the current date ($(date)), the shell being used ($SHELL),
+home directory ($HOME), and the current user ($USER)."
+
+MAIN LOOP:
+"The script uses a while true loop that continues forever. Inside, there's
+a case statement that checks the user's choice. Depending on which option
+they select (1-4), it calls the corresponding function. Option 4 exits the
+script with exit code 0 (success). If the user enters an invalid option,
+it shows an error message and repeats the menu."
+
+================================================================================
+KEY CONCEPTS:
+================================================================================
+
+1. Functions: Code blocks that perform specific tasks
+2. read -p "prompt" variable = Read user input with a prompt
+3. =~ = Regular expression matching operator
+4. ^[0-9]+$ = Regex that matches only positive integers
+5. ! = Negation (NOT operator)
+6. [[ ]] = Extended test brackets (for regex)
+7. return = Exit a function
+8. result=$(( ... )) = Arithmetic expansion (calculate math)
+9. for file in *.sh = Loop through all .sh files
+10. [ -e ] = Check if file exists
+11. [ -x ] = Check if file is executable
+12. [ ! -x ] = Check if file is NOT executable
+13. chmod +x = Change permissions to make executable
+14. while true = Infinite loop (continues until break or exit)
+15. case = Select which action to perform based on input
+16. $(command) = Command substitution (execute and insert result)
+
+================================================================================
+LIVE DEMONSTRATION (SHOW ON TERMINAL):
+================================================================================
+
+$ ./2MenuTask.sh
+
+=============================
+         MAIN MENU
+=============================
+1. Calculate factorial
+2. Fix .sh file permissions
+3. Display system info
+4. Exit
+=============================
+Select an option: 1
+Enter a number: 5
+Factorial of 5 is: 120
+
+=============================
+         MAIN MENU
+=============================
+1. Calculate factorial
+2. Fix .sh file permissions
+3. Display system info
+4. Exit
+=============================
+Select an option: 3
+-----------------------------
+  SYSTEM INFORMATION
+-----------------------------
+Date        : Tue Apr 22 10:00:00 UTC 2026
+Shell       : /bin/bash
+Home Dir    : /home/user
+Run by user : student
+-----------------------------
+
+=============================
+         MAIN MENU
+=============================
+1. Calculate factorial
+2. Fix .sh file permissions
+3. Display system info
+4. Exit
+=============================
+Select an option: 4
+Exiting... Goodbye!
+
+================================================================================
+IMPORTANT BASH CONCEPTS USED:
+================================================================================
+
+read -p: Reads user input interactively
+Regular Expression (=~): Pattern matching for strings
+Arithmetic Expansion $(( )): Performs math calculations
+Command Substitution $( ): Executes command and uses result
+Built-in Variables: $SHELL, $HOME, $USER, $DATE
+File Test Operators: -e (exists), -x (executable), ! (NOT)
+chmod: Changes file permissions
+Case Statement: Selects actions based on user choice
+while true: Creates an infinite loop
+Functions: Organize code into reusable blocks
+
+================================================================================

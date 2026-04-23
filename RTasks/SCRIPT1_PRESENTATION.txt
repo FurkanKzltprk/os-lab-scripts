@@ -1,0 +1,150 @@
+================================================================================
+SCRIPT 1: FILE CREATION SCRIPT - PRESENTATION
+================================================================================
+
+WHAT DOES THIS SCRIPT DO?
+================================================================================
+
+This script creates N empty files with sequential names. It takes three
+parameters from the user and generates files automatically.
+
+Example: ./1CreatingNfiles.sh 5 report pdf
+Result: Creates report_1.pdf, report_2.pdf, report_3.pdf, report_4.pdf, report_5.pdf
+
+================================================================================
+HOW IT WORKS - STEP BY STEP
+================================================================================
+
+STEP 1: Check Parameters
+--------
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 <number_of_files> <base_name> <extension>"
+    exit 1
+fi
+
+Explanation:
+- "$#" = number of arguments passed to the script
+- -ne = "not equal to"
+- The script checks: "Are there exactly 3 arguments?"
+- If NOT 3 arguments: show usage message and exit with error (exit 1)
+- If YES 3 arguments: continue to next step
+
+--------
+
+STEP 2: Store Arguments in Variables
+--------
+n=$1
+name=$2
+extension=$3
+
+Explanation:
+- $1, $2, $3 = the three arguments (in order)
+- We store them in easier variable names: n, name, extension
+- This makes the code more readable
+
+Example:
+  Command: ./1CreatingNfiles.sh 5 document pdf
+  Result: n=5, name=document, extension=pdf
+
+--------
+
+STEP 3: Loop to Create Files
+--------
+for ((i=1; i<=n; i++))
+do
+    touch "${name}_${i}.${extension}"
+done
+
+Explanation:
+- for ((i=1; i<=n; i++)) = Loop from i=1 to i=n, add 1 each time
+- touch = Linux command that creates an empty file
+- "${name}_${i}.${extension}" = builds filename: [name]_[number].[extension]
+
+Loop execution (if n=3):
+  i=1: create document_1.pdf
+  i=2: create document_2.pdf
+  i=3: create document_3.pdf
+  i=4: exit loop (because 4 > 3)
+
+--------
+
+STEP 4: Print Success Message
+--------
+echo "Successfully created $n files."
+
+Explanation:
+- echo = print text to screen
+- $n = shows the number of files created
+
+Example output: "Successfully created 5 files."
+
+================================================================================
+KEY CONCEPTS
+================================================================================
+
+$# = Number of arguments (special variable)
+$0 = Script name (automatic)
+$1, $2, $3 = First, second, third arguments
+= = Assignment operator (store value in variable)
+[ ] = Test brackets (check conditions)
+-ne = Not equal to (comparison operator)
+for ((;;)) = C-style loop (repeat commands)
+++ = Increment (add 1)
+${} = Variable expansion (insert variable value)
+touch = Create empty file command
+exit 0 = Success
+exit 1 = Error
+
+================================================================================
+COMPLETE EXECUTION EXAMPLE
+================================================================================
+
+User Input:
+$ ./1CreatingNfiles.sh 3 log txt
+
+Script Flow:
+1. Check: Is $# equal to 3? YES (3 arguments passed: 3, log, txt)
+2. Assign: n=3, name=log, extension=txt
+3. Loop iteration 1: i=1, create log_1.txt
+4. Loop iteration 2: i=2, create log_2.txt
+5. Loop iteration 3: i=3, create log_3.txt
+6. Check: i=4, is 4 <= 3? NO, exit loop
+7. Print: "Successfully created 3 files."
+8. End
+
+Result: Three files created in current directory
+  - log_1.txt
+  - log_2.txt
+  - log_3.txt
+
+================================================================================
+ERROR CASE EXAMPLE
+================================================================================
+
+User Input (WRONG):
+$ ./1CreatingNfiles.sh 5 test
+
+Script Flow:
+1. Check: Is $# equal to 3? NO (only 2 arguments: 5, test)
+2. Print: "Usage: ./1CreatingNfiles.sh <number_of_files> <base_name> <extension>"
+3. Exit with error (exit 1)
+
+Result: Script stops, no files created
+
+================================================================================
+SYMBOLS PRONUNCIATION (FOR PRESENTATION)
+================================================================================
+
+$# = "Dollar hash" or "Dollar number sign"
+$0 = "Dollar zero"
+$1 = "Dollar one"
+-ne = "Dash n e" (means: not equal)
+[ ] = "Square brackets"
+${} = "Curly braces" or "Dollar curly braces"
+for (( )) = "For loop with double parentheses"
+++ = "Plus plus" (increment)
+; = "Semicolon"
+. = "Dot" (in filenames)
+_ = "Underscore"
+
+================================================================================

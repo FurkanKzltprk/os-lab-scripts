@@ -1,0 +1,80 @@
+================================================================================
+SCRIPT 1: FILE CREATION SCRIPT - PROFESSOR PRESENTATION
+================================================================================
+
+SCRIPT CODE:
+================================================================================
+
+#!/bin/bash
+
+# Check if exactly 3 parameters are provided
+if [ "$#" -ne 3 ]; then
+    echo "Usage: $0 <number_of_files> <base_name> <extension>"
+    exit 1
+fi
+
+# Assign parameters to variables for better readability
+n=$1
+name=$2
+extension=$3
+
+# Loop 'n' times to create the files
+for ((i=1; i<=n; i++))
+do
+    touch "${name}_${i}.${extension}"
+done
+
+echo "Successfully created $n files."
+
+================================================================================
+EXPLANATION (WHAT YOU WILL SAY TO PROFESSOR):
+================================================================================
+
+"Professor, this script creates N empty files with sequential names.
+Let me explain it step by step:"
+
+STEP 1 - Check Parameters:
+"The script checks if exactly 3 arguments are provided. The $# variable
+stores the number of arguments. If not equal to 3 (-ne means 'not equal'),
+it shows the usage message and exits with error code 1."
+
+STEP 2 - Store Arguments:
+"We assign the three arguments to variables: n for number of files, name
+for filename, and extension for file type. This makes the code more readable."
+
+STEP 3 - Loop to Create Files:
+"The for loop starts with i=1 and continues while i is less than or equal
+to n. In each iteration, the touch command creates a file with the name
+constructed from variables: [name]_[i].[extension]. For example, if we pass
+3, document, pdf - it creates document_1.pdf, document_2.pdf, document_3.pdf."
+
+STEP 4 - Success Message:
+"Finally, it prints how many files were created."
+
+EXAMPLE:
+"Command: ./1CreatingNfiles.sh 5 report txt
+Result: Creates report_1.txt through report_5.txt"
+
+================================================================================
+LIVE DEMONSTRATION (SHOW ON TERMINAL):
+================================================================================
+
+$ ./1CreatingNfiles.sh 3 myfile doc
+Successfully created 3 files.
+
+$ ls myfile_*.doc
+myfile_1.doc  myfile_2.doc  myfile_3.doc
+
+================================================================================
+KEY POINTS TO EMPHASIZE:
+================================================================================
+
+1. $# = Number of arguments (special variable)
+2. -ne = Not equal to (comparison operator)
+3. $0 = Script name (automatic)
+4. $1, $2, $3 = The three arguments
+5. for ((i=1; i<=n; i++)) = Loop that repeats n times
+6. touch = Command that creates empty files
+7. ${name}_${i}.${extension} = Filename construction with variables
+
+================================================================================

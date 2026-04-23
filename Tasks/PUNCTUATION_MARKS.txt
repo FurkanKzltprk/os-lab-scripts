@@ -1,0 +1,244 @@
+================================================================================
+PUNCTUATION MARKS AND SPECIAL SYMBOLS IN BASH
+================================================================================
+
+BASIC PUNCTUATION MARKS:
+================================================================================
+
+. (Period/Dot)
+  - Telaffuz: "Dot" veya "Period"
+  - Kullanım: Cümle sonu, dosya uzantısı
+  - Örnek: document.pdf (document dot pdf)
+
+, (Comma)
+  - Telaffuz: "Comma"
+  - Kullanım: Listeler, ayırıcı
+  - Örnek: apple, banana, orange
+
+; (Semicolon)
+  - Telaffuz: "Semicolon"
+  - Kullanım: Komutları ayırır, for döngüsünde
+  - Örnek: for ((i=1; i<=n; i++))
+  - Hocaya: "semicolon separates the parts of the loop"
+
+: (Colon)
+  - Telaffuz: "Colon"
+  - Kullanım: İçinde (case yapılarında)
+  - Örnek: 1) action ;;
+
+' (Single Quote)
+  - Telaffuz: "Single quote" veya "Apostrophe"
+  - Kullanım: String tanımı (literal değer)
+  - Örnek: 'This is literal text'
+
+" (Double Quote)
+  - Telaffuz: "Double quote"
+  - Kullanım: String tanımı (değişkenler değerlendirilir)
+  - Örnek: "Hello $name"
+
+` (Backtick)
+  - Telaffuz: "Backtick" veya "Back quote"
+  - Kullanım: Command substitution
+  - Örnek: `date` (komutu çalıştır, sonucu al)
+
+\ (Backslash)
+  - Telaffuz: "Backslash"
+  - Kullanım: Escape character (özel anlam kaldır)
+  - Örnek: \$ (sadece $ sembolünü yazdır)
+
+/ (Forward Slash)
+  - Telaffuz: "Forward slash" veya "Slash"
+  - Kullanım: Dizin yolu ayırıcı
+  - Örnek: /bin/bash (forward slash bin forward slash bash)
+
+- (Dash/Hyphen)
+  - Telaffuz: "Dash" veya "Hyphen"
+  - Kullanım: Operatörler, kelime bileşimi
+  - Örnek: -ne (dash n e)
+
+_ (Underscore)
+  - Telaffuz: "Underscore"
+  - Kullanım: Değişken adı, dosya adı
+  - Örnek: my_variable (my underscore variable)
+
+= (Equals Sign)
+  - Telaffuz: "Equals" veya "Equal sign"
+  - Kullanım: Atama (assignment)
+  - Örnek: n=5 (n equals five)
+
++ (Plus)
+  - Telaffuz: "Plus"
+  - Kullanım: Ekleme
+  - Örnek: 2+3
+
+* (Asterisk)
+  - Telaffuz: "Asterisk" veya "Star"
+  - Kullanım: Wildcard (tüm dosyalar)
+  - Örnek: *.sh (asterisk dot sh)
+
+? (Question Mark)
+  - Telaffuz: "Question mark"
+  - Kullanım: Wildcard (tek karakter)
+  - Örnek: test?.txt
+
+! (Exclamation Mark)
+  - Telaffuz: "Exclamation mark" veya "Bang"
+  - Kullanım: Shebang, negation
+  - Örnek: #!/bin/bash (hash bang)
+
+@ (At Sign)
+  - Telaffuz: "At sign" veya "At"
+  - Kullanım: Email, bazı değişkenlerde
+  - Örnek: $@ (all arguments)
+
+# (Hash/Pound)
+  - Telaffuz: "Hash" veya "Pound sign"
+  - Kullanım: Comment, $# ile argüman sayısı
+  - Örnek: # This is a comment
+
+$ (Dollar Sign)
+  - Telaffuz: "Dollar" veya "Dollar sign"
+  - Kullanım: Değişken değeri almak
+  - Örnek: $0, $1, $#
+
+() (Parentheses)
+  - Telaffuz: "Parentheses" veya "Round brackets"
+  - Kullanım: Subshell, fonksiyon çağırma
+  - Örnek: (command) veya function()
+
+[] (Square Brackets)
+  - Telaffuz: "Square brackets" veya "Test brackets"
+  - Kullanım: Koşul testi
+  - Örnek: [ "$#" -ne 3 ]
+
+{} (Curly Braces)
+  - Telaffuz: "Curly braces" veya "Braces"
+  - Kullanım: Değişken expansion, blok
+  - Örnek: ${variable}
+
+< (Less Than)
+  - Telaffuz: "Less than"
+  - Kullanım: Yönlendirme, karşılaştırma
+  - Örnek: i < n
+
+> (Greater Than)
+  - Telaffuz: "Greater than"
+  - Kullanım: Yönlendirme (output)
+  - Örnek: echo "text" > file.txt
+
+<< (Double Less Than)
+  - Telaffuz: "Double less than" veya "Left shift"
+  - Kullanım: Here document
+  - Örnek: << EOF
+
+>> (Double Greater Than)
+  - Telaffuz: "Double greater than" veya "Append"
+  - Kullanım: Dosyaya ekle (append)
+  - Örnek: echo "text" >> file.txt
+
+| (Pipe)
+  - Telaffuz: "Pipe"
+  - Kullanım: Komut çıktısını başka komuta gönder
+  - Örnek: cat file.txt | grep "word"
+
+& (Ampersand)
+  - Telaffuz: "Ampersand" veya "And"
+  - Kullanım: Arka planda çalıştırma
+  - Örnek: command &
+
+&& (Double Ampersand)
+  - Telaffuz: "Double ampersand" veya "And operator"
+  - Kullanım: Mantıksal VE
+  - Örnek: command1 && command2
+
+|| (Double Pipe)
+  - Telaffuz: "Double pipe" veya "Or operator"
+  - Kullanım: Mantıksal VEYA
+  - Örnek: command1 || command2
+
+~ (Tilde)
+  - Telaffuz: "Tilde"
+  - Kullanım: Home directory
+  - Örnek: ~/Documents (tilde slash Documents)
+
+^ (Caret)
+  - Telaffuz: "Caret"
+  - Kullanım: Regex başlangıç
+  - Örnek: ^start
+
+` (Backtick)
+  - Telaffuz: "Backtick"
+  - Kullanım: Command substitution
+  - Örnek: `pwd`
+
+================================================================================
+BASH-SPECIFIC OPERATORS:
+================================================================================
+
+-ne (Not Equal)
+  - Telaffuz: "Dash n e" veya "Not equal operator"
+  - Örnek: [ "$#" -ne 3 ]
+
+-eq (Equal)
+  - Telaffuz: "Dash e q" veya "Equal operator"
+  - Örnek: [ $n -eq 5 ]
+
+-le (Less Than or Equal)
+  - Telaffuz: "Dash l e" veya "Less than or equal"
+  - Örnek: i -le n
+
+-lt (Less Than)
+  - Telaffuz: "Dash l t" veya "Less than"
+  - Örnek: i -lt 10
+
+-ge (Greater Than or Equal)
+  - Telaffuz: "Dash g e" veya "Greater than or equal"
+  - Örnek: i -ge 1
+
+-gt (Greater Than)
+  - Telaffuz: "Dash g t" veya "Greater than"
+  - Örnek: i -gt 0
+
+-x (Executable)
+  - Telaffuz: "Dash x" veya "Executable test"
+  - Örnek: [ -x file ] (is file executable?)
+
+-f (File)
+  - Telaffuz: "Dash f" veya "File test"
+  - Örnek: [ -f file ] (does file exist?)
+
+-d (Directory)
+  - Telaffuz: "Dash d" veya "Directory test"
+  - Örnek: [ -d directory ]
+
+++ (Increment)
+  - Telaffuz: "Plus plus" veya "Increment"
+  - Örnek: i++ (i plus plus)
+
+-- (Decrement)
+  - Telaffuz: "Minus minus" veya "Decrement"
+  - Örnek: i-- (i minus minus)
+
+================================================================================
+ÖRNEK CÜMLELER (HOCAYA):
+================================================================================
+
+1. "In this script, we use square brackets to test the condition."
+   (Bu scriptte, koşulu test etmek için square brackets kullanıyoruz.)
+
+2. "The dash n e operator means 'not equal to'."
+   (Dash n e operatörü 'eşit değil' anlamına geliyor.)
+
+3. "We use curly braces for variable expansion."
+   (Değişken expansion için curly braces kullanıyoruz.)
+
+4. "The pipe character connects the output of one command to another."
+   (Pipe karakteri bir komutun çıktısını başka komuta bağlar.)
+
+5. "The semicolon separates the three parts of the for loop."
+   (Semicolon, for döngüsünün üç bölümünü ayırır.)
+
+6. "Double quotes protect the variable value from word splitting."
+   (Double quotes, değişken değerini word splitting'ten korur.)
+
+================================================================================
