@@ -1,18 +1,11 @@
 #!/bin/bash
 
-# Script 2: Menu-driven script with functions
-# Runs until option 4 (Exit) is selected
-
-# ─────────────────────────────────────────
-# FUNCTION 1: Calculate factorial
-# ─────────────────────────────────────────
-
 
 calculate_factorial() {
     read -p "Enter a number: " num 
+    
 
     
-    # Validate input is a non-negative integer
     if ! [[ "$num" =~ ^[0-9]+$ ]]; then  #burası biraaz karışı köğren.
         echo "Error: Please enter a valid non-negative integer.",
         
@@ -21,33 +14,30 @@ calculate_factorial() {
 
 
     result=1
-    for (( i=2; i<=num; i++ )); do
 
-    #5!  =    1 * 2 = 2
-    #5!  =    2 * 3 = 6
-    #5!  =    6 * 4 = 24
-    #5!  =    24 * 5 = 120
+    for (( i=2; i<=num; i++ )); do
 
         result=$(( result * i ))  
     done
     echo "Factorial of $num is: $result"
+
+    # 1 * 2 = 2 
+    # 2 * 3 = 6
+    # 6 * 4 = 24
+    # 24 * 5 = 120
 }
 
-# ─────────────────────────────────────────
-# FUNCTION 2: Fix permissions on .sh files
-# ─────────────────────────────────────────
 fix_sh_permissions() {
     echo "Searching current directory for non-executable .sh files..."
 
     found=0
     
     for file in *.sh; do
-        # Check if any .sh files exist
+        
         [ -e "$file" ] || continue
 
-        # If file is not executable, make it executable
         if [ ! -x "$file" ]; then
-            chmod +x "$file"
+            chmod +x "$file" 
             echo "Permission changed: $file → now executable"
             found=1
         fi
@@ -58,9 +48,6 @@ fix_sh_permissions() {
     fi
 }
 
-# ─────────────────────────────────────────
-# FUNCTION 3: Display system information
-# ─────────────────────────────────────────
 display_system_info() {
     echo "-----------------------------"
     echo "  SYSTEM INFORMATION"
@@ -72,12 +59,8 @@ display_system_info() {
     echo "-----------------------------"
 }
 
-# ─────────────────────────────────────────
-# MAIN MENU LOOP
-# ─────────────────────────────────────────
 while true; do
-    echo ""
-    echo "============================="
+    echo 
     echo "         MAIN MENU"
     echo "============================="
     echo "1. Calculate factorial"
